@@ -9,7 +9,7 @@ type TodolistType = {
 
 type FieldErrorType = {
     error: string
-    field: String
+    field: string
 }
 
 

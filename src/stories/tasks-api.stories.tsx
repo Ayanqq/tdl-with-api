@@ -5,14 +5,14 @@ export default {
     title: 'TASKS-API'
 }
 
-const todolistId = 'f2605f37-4d8f-46c3-9605-ce65e07e2f4b'
+const todolistId = '4c2761d6-70b7-4106-a74a-e925eb003fb2'
 
 export const GetTasks = () => {
     const [state, setState] = useState<any>(null)
     useEffect(() => {
         tasksApi.getTasks(todolistId)
             .then(res => {
-                setState(res.data.items[0].title)
+                setState(res.data)
             })
             .catch(rej => setState(`Ошибка ${rej}`))
     }, [])
@@ -22,7 +22,7 @@ export const GetTasks = () => {
 export const CreateTask = () => {
     const [state, setState] = useState<any>(null)
     useEffect(() => {
-        tasksApi.createTask(todolistId, 'Again new task')
+        tasksApi.createTask(todolistId, 'Task For SECOND todolist, number TWO')
             .then(res => {
                 setState(res.data.data.item.title)
             })
@@ -34,7 +34,7 @@ export const CreateTask = () => {
 
 export const DeleteTask = () => {
     const [state, setState] = useState<any>(null)
-    const taskId = '8c75de31-d1cb-4e95-9273-4a5a298f0036'
+    const taskId = '4c2761d6-70b7-4106-a74a-e925eb003fb2'
     useEffect(() => {
        tasksApi.deleteTask(todolistId, taskId)
             .then(res => {
